@@ -9,6 +9,9 @@ import java.util.List;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gargoylesoftware.htmlunit.WebClient;
@@ -61,6 +64,18 @@ public class NewsApplication {
 			log.info(ex.getMessage());
 
 		}
+	}
+	
+	@Controller
+	public class Home {
+		
+		@RequestMapping(value = "/News")
+	    public ModelAndView getDateAndTime() {
+	        return new ModelAndView("News");
+
+		}
+		
+		
 	}
 
 }
